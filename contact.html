@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TERMINAL_INTERFACE | AlestA Dynamics</title>
+</head>
+<body class="bg-slate-900 flex flex-col min-h-screen text-slate-300 font-sans">
+
+    <header class="flex justify-between items-center p-6 bg-slate-950 border-b border-emerald-500/20">
+        <div class="flex flex-col items-end">
+            <a class="text-emerald-500 font-bold text-xl font-mono tracking-tighter" href="index.html">
+                alesta<span class="text-red-600">.</span>dynamics
+            </a>
+            <span class="text-white text-xs">By ege</span>
+        </div>
+        <nav class="text-emerald-500 tracking-widest font-mono text-xs flex gap-6">
+             <a href="index.html" class="hover:text-white uppercase transition-all">Home</a>
+             <a href="about.html" class="hover:text-white uppercase transition-all">About</a>
+             <a href="contact.html" class="text-white uppercase">Contact</a>
+        </nav>
+    </header>
+
+    <main class="flex-grow p-4 md:p-10 flex flex-col items-center justify-center">
+        <div class="w-full max-w-4xl bg-slate-950/90 border border-emerald-500/10 shadow-2xl p-6 font-mono text-xs md:text-sm text-emerald-400 min-h-[400px] flex flex-col">
+            
+            <div id="boot-sequence" class="space-y-1 mb-6 text-slate-500">
+                <p>ALESTA DYNAMICS :: COMM_INTERFACE [v1.2.0]</p>
+                <p>ESTABLISHING SECURE CONNECTION TO STATION_01...</p>
+                <p class="text-emerald-500">[OK] LINK SECURED. ENCRYPTION: AES-256</p>
+                <p>--------------------------------------------------</p>
+                <p>Type <span class="text-white font-bold">'help'</span> to see available protocols.</p>
+                <p>Type <span class="text-white font-bold">'msg'</span> to initiate direct data transmission.</p>
+            </div>
+
+            <div id="terminal-output" class="space-y-2 mb-4 overflow-y-auto flex-grow max-h-[500px]"></div>
+
+            <div class="flex items-center gap-2 border-t border-emerald-500/10 pt-4">
+                <span class="text-emerald-500 shrink-0">SYS@ALESTA_DYNAMICS:~$</span>
+                <input type="text" id="terminal-input" autofocus autocomplete="off"
+                       class="flex-grow bg-transparent outline-none text-emerald-400 caret-emerald-500 font-mono">
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-950 p-6 border-t border-emerald-500/10 text-center text-[10px] font-mono text-slate-600">
+        &copy; 2026 AlestA Dynamics | Terminal Communication Protocol
+    </footer>
+
+    <script>
+        const input = document.getElementById('terminal-input');
+        const output = document.getElementById('terminal-output');
+        const boot = document.getElementById('boot-sequence');
+        const FORMSPREE_URL = "https://formspree.io/f/mbdpyydp";
+
+        let currentStep = 'idle'; 
+        let messageData = { name: '', _replyto: '', message: '' };
+
+        input.addEventListener('keydown', async function(event) {
+            if (event.key === 'Enter') {
+                const val = input.value.trim();
+                input.value = '';
+                if (val === '' && currentStep === 'idle') return;
+
+                if (currentStep === 'idle') {
+                    handleCommands(val.toLowerCase());
+                } else {
+                    handleMessageSequence(val);
+                }
+                
+                // Otomatik aşağı kaydır
+                window.scrollTo(0, document.body.scrollHeight);
+            }
+        });
+
+        function handleCommands(cmd) {
+            if (boot) boot.classList.add('hidden');
+            output.innerHTML += `<p class="text-slate-500">SYS@ALESTA_DYNAMICS:~$ <span class="text-white">${cmd}</span></p>`;
+
+            switch(cmd) {
+                case 'help':
+                    output.innerHTML += `
+                        <div class="text-slate-400 pl-4 space-y-1 my-2">
+                            <p>> msg / send -- Start secure data transmission to Ege</p>
+                            <p>> status -- Check node & system health</p>
+                            <p>> clear -- Purge terminal cache</p>
+                            <p>> whoami -- Display Lead Engineer credentials</p>
+                        </div>`;
+                    break;
+                case 'msg':
+                case 'send':
+                    currentStep = 'getName';
+                    output.innerHTML += `<p class="text-yellow-500 mt-2">[INITIATING_MESSAGE_PROTOCOL...]</p>`;
+                    output.innerHTML += `<p class="text-emerald-500">>> IDENTIFY YOURSELF (Full Name):</p>`;
+                    break;
+                case 'status':
+                    output.innerHTML += `<p class="text-emerald-500">[OK] All nodes operational. Uplink active at 10.4 Gbps.</p>`;
+                    break;
+                case 'whoami':
+                    output.innerHTML += `<p class="text-slate-400 pl-4">> LEAD_ENGINEER: EGE UCYOL // MECH_ENG @ UNI BREMEN</p>`;
+                    break;
+                case 'clear':
+                    output.innerHTML = '';
+                    if (boot) boot.classList.remove('hidden');
+                    break;
+                default:
+                    output.innerHTML += `<p class="text-red-500">[ERROR]: Command '${cmd}' not found. Protocol rejected.</p>`;
+            }
+        }
+
+        async function handleMessageSequence(val) {
+            if (currentStep === 'getName') {
+                messageData.name = val;
+                currentStep = 'getEmail';
+                output.innerHTML += `<p class="text-slate-500">> ID_VALIDATED: ${val}</p>`;
+                output.innerHTML += `<p class="text-emerald-500">>> ENTER RETURN_EMAIL (Address for response):</p>`;
+            } 
+            else if (currentStep === 'getEmail') {
+                messageData._replyto = val;
+                currentStep = 'getBody';
+                output.innerHTML += `<p class="text-slate-500">> EMAIL_LOGGED: ${val}</p>`;
+                output.innerHTML += `<p class="text-emerald-500">>> ENTER MESSAGE_PAYLOAD (Text content):</p>`;
+            } 
+            else if (currentStep === 'getBody') {
+                messageData.message = val;
+                currentStep = 'sending';
+                output.innerHTML += `<p class="text-yellow-500 animate-pulse mt-2">[ENCRYPTING_AND_TRANSMITTING_PACKET...]</p>`;
+                
+                try {
+                    const response = await fetch(FORMSPREE_URL, {
+                        method: 'POST',
+                        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                        body: JSON.stringify(messageData)
+                    });
+
+                    if (response.ok) {
+                        output.innerHTML += `<p class="text-emerald-500 font-bold mb-4">[SUCCESS] Packet delivered to Station_01. System idle.</p>`;
+                    } else {
+                        throw new Error();
+                    }
+                } catch (err) {
+                    output.innerHTML += `<p class="text-red-500 font-bold">[CRITICAL_ERROR] Transmission failed. Check link status.</p>`;
+                }
+
+                currentStep = 'idle';
+                output.innerHTML += `<p class="text-slate-600">--------------------------------------------------</p>`;
+            }
+        }
+
+        // Tıklayınca input'a dön
+        document.addEventListener('click', () => input.focus());
+    </script>
+</body>
+</html>
