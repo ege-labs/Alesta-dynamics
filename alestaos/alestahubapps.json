@@ -46,7 +46,7 @@
     { "name": "Vaultwarden", "image": "vaultwarden/server", "icon": "vaultwarden", "desc": "Self-hosted Bitwarden server.", "defaultPort": 80 },
     { "name": "Immich", "image": "ghcr.io/immich-app/immich-server", "icon": "immich", "desc": "High-performance photo backup.", "defaultPort": 2283 },
     { "name": "PhotoPrism", "image": "photoprism/photoprism", "icon": "photoprism", "desc": "AI-powered photo management.", "defaultPort": 2342 },
-    { "name": "Wiki.js", "image": "requarks/wiki", "icon": "wiki-js", "desc": "Modern and powerful wiki platform.", "defaultPort": 3000 },
+    { "name": "Wiki.js", "image": "requarks/wiki", "icon": "wikijs", "desc": "Modern and powerful wiki platform.", "defaultPort": 3000 },
     { "name": "MQTT Broker", "image": "eclipse-mosquitto", "icon": "mosquitto", "desc": "Efficient IoT messaging broker.", "defaultPort": 1883 },
     { "name": "Elasticsearch", "image": "elasticsearch", "icon": "elasticsearch", "desc": "Distributed search and analytics engine.", "defaultPort": 9200 },
     { "name": "Keycloak", "image": "quay.io/keycloak/keycloak", "icon": "keycloak", "desc": "Identity and access management.", "defaultPort": 8080 },
