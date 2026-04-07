@@ -1,10 +1,276 @@
 {
   "apps": [
-    {
-      "name": "Nextcloud",
-      "image": "nextcloud",
-      "desc": "Kendi özel bulutun.",
-      "defaultPort": 8081
-    }
+    { "name": "Nextcloud", "image": "nextcloud", "desc": "Personal cloud storage.", "defaultPort": 8081 },
+    { "name": "Portainer", "image": "portainer/portainer-ce", "desc": "Docker management UI.", "defaultPort": 9000 },
+    { "name": "Dockge", "image": "louislam/dockge", "desc": "Compose-based Docker manager.", "defaultPort": 5001 },
+    { "name": "Watchtower", "image": "containrrr/watchtower", "desc": "Auto update containers.", "defaultPort": 8080 },
+    { "name": "Yacht", "image": "selfhostedpro/yacht", "desc": "Docker web UI.", "defaultPort": 8000 },
+    { "name": "Nginx Proxy Manager", "image": "jc21/nginx-proxy-manager", "desc": "Reverse proxy UI.", "defaultPort": 81 },
+    { "name": "Traefik", "image": "traefik", "desc": "Reverse proxy and load balancer.", "defaultPort": 8080 },
+    { "name": "Caddy", "image": "caddy", "desc": "Web server with HTTPS.", "defaultPort": 2015 },
+    { "name": "Seafile", "image": "seafileltd/seafile-mc", "desc": "File sync platform.", "defaultPort": 80 },
+    { "name": "Syncthing", "image": "syncthing/syncthing", "desc": "Peer-to-peer sync.", "defaultPort": 8384 },
+    { "name": "Plex", "image": "plexinc/pms-docker", "desc": "Media server.", "defaultPort": 32400 },
+    { "name": "Jellyfin", "image": "jellyfin/jellyfin", "desc": "Open source media server.", "defaultPort": 8096 },
+    { "name": "Emby", "image": "emby/embyserver", "desc": "Media server.", "defaultPort": 8096 },
+    { "name": "Radarr", "image": "linuxserver/radarr", "desc": "Movie manager.", "defaultPort": 7878 },
+    { "name": "Sonarr", "image": "linuxserver/sonarr", "desc": "TV manager.", "defaultPort": 8989 },
+    { "name": "Bazarr", "image": "linuxserver/bazarr", "desc": "Subtitle manager.", "defaultPort": 6767 },
+    { "name": "qBittorrent", "image": "linuxserver/qbittorrent", "desc": "Torrent client.", "defaultPort": 8080 },
+    { "name": "Transmission", "image": "linuxserver/transmission", "desc": "Torrent client.", "defaultPort": 9091 },
+    { "name": "SABnzbd", "image": "linuxserver/sabnzbd", "desc": "Usenet downloader.", "defaultPort": 8080 },
+    { "name": "NZBGet", "image": "linuxserver/nzbget", "desc": "Usenet downloader.", "defaultPort": 6789 },
+    { "name": "PostgreSQL", "image": "postgres", "desc": "SQL database.", "defaultPort": 5432 },
+    { "name": "MySQL", "image": "mysql", "desc": "SQL database.", "defaultPort": 3306 },
+    { "name": "MariaDB", "image": "mariadb", "desc": "MySQL compatible DB.", "defaultPort": 3306 },
+    { "name": "Redis", "image": "redis", "desc": "In-memory datastore.", "defaultPort": 6379 },
+    { "name": "Grafana", "image": "grafana/grafana", "desc": "Monitoring dashboards.", "defaultPort": 3000 },
+    { "name": "Prometheus", "image": "prom/prometheus", "desc": "Metrics monitoring.", "defaultPort": 9090 },
+    { "name": "Uptime Kuma", "image": "louislam/uptime-kuma", "desc": "Uptime monitoring.", "defaultPort": 3001 },
+    { "name": "Netdata", "image": "netdata/netdata", "desc": "System monitoring.", "defaultPort": 19999 },
+    { "name": "WireGuard", "image": "linuxserver/wireguard", "desc": "VPN server.", "defaultPort": 51820 },
+    { "name": "OpenVPN", "image": "kylemanna/openvpn", "desc": "VPN server.", "defaultPort": 1194 },
+    { "name": "Tailscale", "image": "tailscale/tailscale", "desc": "Mesh VPN.", "defaultPort": 41641 },
+    { "name": "Pi-hole", "image": "pihole/pihole", "desc": "Ad blocker DNS.", "defaultPort": 80 },
+    { "name": "AdGuard Home", "image": "adguard/adguardhome", "desc": "DNS ad blocker.", "defaultPort": 3000 },
+    { "name": "FileBrowser", "image": "filebrowser/filebrowser", "desc": "File manager UI.", "defaultPort": 8080 },
+    { "name": "Duplicati", "image": "duplicati/duplicati", "desc": "Backup tool.", "defaultPort": 8200 },
+    { "name": "Restic", "image": "restic/restic", "desc": "Backup tool.", "defaultPort": 0 },
+    { "name": "Home Assistant", "image": "homeassistant/home-assistant", "desc": "Smart home hub.", "defaultPort": 8123 },
+    { "name": "Node-RED", "image": "nodered/node-red", "desc": "Automation flows.", "defaultPort": 1880 },
+    { "name": "n8n", "image": "n8nio/n8n", "desc": "Workflow automation.", "defaultPort": 5678 },
+    { "name": "GitLab", "image": "gitlab/gitlab-ce", "desc": "DevOps platform.", "defaultPort": 80 },
+    { "name": "Gitea", "image": "gitea/gitea", "desc": "Git hosting.", "defaultPort": 3000 },
+    { "name": "Jenkins", "image": "jenkins/jenkins", "desc": "CI/CD server.", "defaultPort": 8080 },
+    { "name": "VS Code Server", "image": "codercom/code-server", "desc": "Browser IDE.", "defaultPort": 8080 },
+    { "name": "MinIO", "image": "minio/minio", "desc": "Object storage S3 compatible.", "defaultPort": 9000 },
+    { "name": "Vaultwarden", "image": "vaultwarden/server", "desc": "Password manager server.", "defaultPort": 80 },
+    { "name": "Calibre-Web", "image": "linuxserver/calibre-web", "desc": "Ebook library.", "defaultPort": 8083 },
+    { "name": "Paperless-ngx", "image": "paperlessngx/paperless-ngx", "desc": "Document management.", "defaultPort": 8000 },
+    { "name": "Immich", "image": "ghcr.io/immich-app/immich-server", "desc": "Photo backup.", "defaultPort": 2283 },
+    { "name": "PhotoPrism", "image": "photoprism/photoprism", "desc": "Photo management.", "defaultPort": 2342 },
+    { "name": "Mealie", "image": "hkotel/mealie", "desc": "Recipe manager.", "defaultPort": 9925 },
+    { "name": "BookStack", "image": "linuxserver/bookstack", "desc": "Wiki platform.", "defaultPort": 80 },
+    { "name": "Wiki.js", "image": "requarks/wiki", "desc": "Modern wiki.", "defaultPort": 3000 },
+    { "name": "Outline", "image": "outlinewiki/outline", "desc": "Team wiki.", "defaultPort": 3000 },
+    { "name": "Grocy", "image": "linuxserver/grocy", "desc": "Inventory management.", "defaultPort": 9283 },
+    { "name": "Homebridge", "image": "oznu/homebridge", "desc": "Apple HomeKit bridge.", "defaultPort": 8581 },
+    { "name": "MQTT Broker", "image": "eclipse-mosquitto", "desc": "MQTT messaging broker.", "defaultPort": 1883 },
+    { "name": "Zigbee2MQTT", "image": "koenkk/zigbee2mqtt", "desc": "Zigbee integration.", "defaultPort": 8080 },
+    { "name": "Node Exporter", "image": "prom/node-exporter", "desc": "System metrics exporter.", "defaultPort": 9100 },
+    { "name": "Cadvisor", "image": "gcr.io/cadvisor/cadvisor", "desc": "Container metrics.", "defaultPort": 8080 },
+    { "name": "Elasticsearch", "image": "elasticsearch", "desc": "Search and analytics engine.", "defaultPort": 9200 },
+    { "name": "Kibana", "image": "kibana", "desc": "Elastic dashboard.", "defaultPort": 5601 },
+    { "name": "Logstash", "image": "logstash", "desc": "Log processing.", "defaultPort": 5044 },
+    { "name": "Fluentd", "image": "fluent/fluentd", "desc": "Log collector.", "defaultPort": 24224 },
+    { "name": "Authelia", "image": "authelia/authelia", "desc": "Authentication server.", "defaultPort": 9091 },
+    { "name": "Keycloak", "image": "quay.io/keycloak/keycloak", "desc": "Identity management.", "defaultPort": 8080 },
+    { "name": "Duplicacy", "image": "gcr.io/duplicacy/duplicacy", "desc": "Backup solution.", "defaultPort": 3875 },
+    { "name": "Stirling PDF", "image": "frooodle/s-pdf", "desc": "PDF tools.", "defaultPort": 8080 },
+    { "name": "NocoDB", "image": "nocodb/nocodb", "desc": "No-code database UI.", "defaultPort": 8080 },
+    { "name": "Appwrite", "image": "appwrite/appwrite", "desc": "Backend as a service.", "defaultPort": 80 },
+    { "name": "Supabase", "image": "supabase/postgres", "desc": "Backend platform.", "defaultPort": 5432 },
+    { "name": "Hasura", "image": "hasura/graphql-engine", "desc": "GraphQL engine.", "defaultPort": 8080 },
+    { "name": "Metabase", "image": "metabase/metabase", "desc": "Analytics platform.", "defaultPort": 3000 },
+    { "name": "Redash", "image": "redash/redash", "desc": "Data visualization.", "defaultPort": 5000 },
+    { "name": "ERPNext", "image": "frappe/erpnext", "desc": "ERP system.", "defaultPort": 8000 },
+    { "name": "Odoo", "image": "odoo", "desc": "Business suite.", "defaultPort": 8069 },
+    { "name": "Dolibarr", "image": "tuxgasy/dolibarr", "desc": "ERP/CRM.", "defaultPort": 80 },
+    { "name": "Jitsi Meet", "image": "jitsi/web", "desc": "Video conferencing.", "defaultPort": 80 },
+    { "name": "Mattermost", "image": "mattermost/mattermost-team-edition", "desc": "Chat platform.", "defaultPort": 8065 },
+    { "name": "Rocket.Chat", "image": "rocket.chat", "desc": "Chat platform.", "defaultPort": 3000 },
+    { "name": "Zulip", "image": "zulip/zulip", "desc": "Chat platform.", "defaultPort": 80 },
+    { "name": "Discourse", "image": "discourse/discourse", "desc": "Forum platform.", "defaultPort": 80 },
+    { "name": "Ghost", "image": "ghost", "desc": "Blog platform.", "defaultPort": 2368 },
+    { "name": "WordPress", "image": "wordpress", "desc": "CMS.", "defaultPort": 80 },
+    { "name": "Drupal", "image": "drupal", "desc": "CMS.", "defaultPort": 80 },
+    { "name": "Magento", "image": "bitnami/magento", "desc": "E-commerce.", "defaultPort": 8080 },
+    { "name": "OpenCart", "image": "opencart/opencart", "desc": "E-commerce.", "defaultPort": 80 },
+    { "name": "Prestashop", "image": "prestashop/prestashop", "desc": "E-commerce.", "defaultPort": 80 },
+    { "name": "SearXNG", "image": "searxng/searxng", "desc": "Search engine.", "defaultPort": 8080 },
+    { "name": "Whoogle", "image": "benbusby/whoogle-search", "desc": "Private search.", "defaultPort": 5000 },
+    { "name": "Kavita", "image": "kizaing/kavita", "desc": "Comic reader.", "defaultPort": 5000 },
+    { "name": "Audiobookshelf", "image": "ghcr.io/advplyr/audiobookshelf", "desc": "Audiobook server.", "defaultPort": 80 },
+    { "name": "Overseerr", "image": "lscr.io/linuxserver/overseerr", "desc": "Media requests.", "defaultPort": 5055 },
+    { "name": "Tautulli", "image": "linuxserver/tautulli", "desc": "Plex analytics.", "defaultPort": 8181 },
+    { "name": "Jackett", "image": "linuxserver/jackett", "desc": "Indexer proxy.", "defaultPort": 9117 },
+    { "name": "Prowlarr", "image": "linuxserver/prowlarr", "desc": "Indexer manager.", "defaultPort": 9696 },
+    { "name": "Readarr", "image": "linuxserver/readarr", "desc": "Book manager.", "defaultPort": 8787 },
+    { "name": "Lidarr", "image": "linuxserver/lidarr", "desc": "Music manager.", "defaultPort": 8686 },
+    { "name": "Mylar3", "image": "linuxserver/mylar3", "desc": "Comic manager.", "defaultPort": 8090 },
+    { "name": "Tdarr", "image": "haveagitgat/tdarr", "desc": "Media transcoding.", "defaultPort": 8265 },
+    { "name": "HandBrake", "image": "jlesage/handbrake", "desc": "Video transcoder.", "defaultPort": 5800 },
+    { "name": "MakeMKV", "image": "jlesage/makemkv", "desc": "Blu-ray ripper.", "defaultPort": 5800 },
+    { "name": "Firefly III", "image": "fireflyiii/core", "desc": "Finance manager.", "defaultPort": 8080 },
+    { "name": "Actual Budget", "image": "actualbudget/actual-server", "desc": "Budget tracker.", "defaultPort": 5006 },
+    { "name": "Penpot", "image": "penpotapp/backend", "desc": "Design tool.", "defaultPort": 9001 },
+    { "name": "Excalidraw", "image": "excalidraw/excalidraw", "desc": "Whiteboard.", "defaultPort": 80 },
+    { "name": "Draw.io", "image": "jgraph/drawio", "desc": "Diagram tool.", "defaultPort": 8080 },
+    { "name": "LibreTranslate", "image": "libretranslate/libretranslate", "desc": "Translator.", "defaultPort": 5000 },
+    { "name": "DeepStack", "image": "deepquestai/deepstack", "desc": "AI inference.", "defaultPort": 5000 },
+    { "name": "Stable Diffusion WebUI", "image": "automatic1111/stable-diffusion-webui", "desc": "AI image gen.", "defaultPort": 7860 },
+    { "name": "OpenWebUI", "image": "ghcr.io/open-webui/open-webui", "desc": "LLM UI.", "defaultPort": 8080 },
+    { "name": "Ollama", "image": "ollama/ollama", "desc": "Local LLM runtime.", "defaultPort": 11434 },
+    { "name": "Flowise", "image": "flowiseai/flowise", "desc": "LLM workflows.", "defaultPort": 3000 }
+    ,{ "name": "ArchiveBox", "image": "archivebox/archivebox", "desc": "Web archiving.", "defaultPort": 8000 }
+    ,{ "name": "Linkding", "image": "sissbruecker/linkding", "desc": "Bookmark manager.", "defaultPort": 9090 }
+    ,{ "name": "Shiori", "image": "ghcr.io/go-shiori/shiori", "desc": "Bookmark manager.", "defaultPort": 8080 }
+    ,{ "name": "Wallabag", "image": "wallabag/wallabag", "desc": "Read-it-later service.", "defaultPort": 80 }
+    ,{ "name": "Miniflux", "image": "miniflux/miniflux", "desc": "RSS reader.", "defaultPort": 8080 }
+    ,{ "name": "FreshRSS", "image": "freshrss/freshrss", "desc": "RSS aggregator.", "defaultPort": 80 }
+    ,{ "name": "Tiny Tiny RSS", "image": "linuxserver/tt-rss", "desc": "RSS reader.", "defaultPort": 80 }
+    ,{ "name": "MeTube", "image": "alexta69/metube", "desc": "YouTube downloader UI.", "defaultPort": 8081 }
+    ,{ "name": "TubeArchivist", "image": "bbilly1/tubearchivist", "desc": "YouTube archiver.", "defaultPort": 8000 }
+    ,{ "name": "yt-dlp", "image": "mikenye/yt-dlp", "desc": "Video downloader.", "defaultPort": 0 }
+    ,{ "name": "Filezilla Server", "image": "linuxserver/filezilla", "desc": "FTP server.", "defaultPort": 21 }
+    ,{ "name": "vsftpd", "image": "fauria/vsftpd", "desc": "FTP server.", "defaultPort": 21 }
+    ,{ "name": "SFTPGo", "image": "drakkan/sftpgo", "desc": "SFTP server.", "defaultPort": 8080 }
+    ,{ "name": "Apache", "image": "httpd", "desc": "Web server.", "defaultPort": 80 }
+    ,{ "name": "Nginx", "image": "nginx", "desc": "Web server.", "defaultPort": 80 }
+    ,{ "name": "Lighttpd", "image": "sebp/lighttpd", "desc": "Light web server.", "defaultPort": 80 }
+    ,{ "name": "HAProxy", "image": "haproxy", "desc": "Load balancer.", "defaultPort": 8404 }
+    ,{ "name": "Certbot", "image": "certbot/certbot", "desc": "SSL certificates.", "defaultPort": 0 }
+    ,{ "name": "Cloudflared", "image": "cloudflare/cloudflared", "desc": "Tunnel service.", "defaultPort": 0 }
+    ,{ "name": "ZeroTier", "image": "zyclonite/zerotier", "desc": "Virtual networking.", "defaultPort": 9993 }
+    ,{ "name": "Teleport", "image": "gravitational/teleport", "desc": "Access platform.", "defaultPort": 3080 }
+    ,{ "name": "Guacamole", "image": "guacamole/guacamole", "desc": "Remote desktop gateway.", "defaultPort": 8080 }
+    ,{ "name": "XRDP", "image": "linuxserver/xrdp", "desc": "Remote desktop.", "defaultPort": 3389 }
+    ,{ "name": "NoVNC", "image": "theasp/novnc", "desc": "Browser VNC.", "defaultPort": 8080 }
+    ,{ "name": "VNC Server", "image": "dorowu/ubuntu-desktop-lxde-vnc", "desc": "Desktop in browser.", "defaultPort": 80 }
+    ,{ "name": "Code Server Dev", "image": "codercom/code-server", "desc": "VS Code in browser.", "defaultPort": 8080 }
+    ,{ "name": "Collabora", "image": "collabora/code", "desc": "Online office.", "defaultPort": 9980 }
+    ,{ "name": "OnlyOffice", "image": "onlyoffice/documentserver", "desc": "Office suite.", "defaultPort": 80 }
+    ,{ "name": "Etherpad", "image": "etherpad/etherpad", "desc": "Collaborative editor.", "defaultPort": 9001 }
+    ,{ "name": "Moodle", "image": "bitnami/moodle", "desc": "Learning platform.", "defaultPort": 8080 }
+    ,{ "name": "OpenProject", "image": "openproject/community", "desc": "Project management.", "defaultPort": 80 }
+    ,{ "name": "Taiga", "image": "taigaio/taiga-back", "desc": "Project management.", "defaultPort": 8000 }
+    ,{ "name": "Redmine", "image": "redmine", "desc": "Project tracking.", "defaultPort": 3000 }
+    ,{ "name": "Zammad", "image": "zammad/zammad", "desc": "Helpdesk system.", "defaultPort": 80 }
+    ,{ "name": "GLPI", "image": "diouxx/glpi", "desc": "IT asset management.", "defaultPort": 80 }
+    ,{ "name": "OsTicket", "image": "osticket/osticket", "desc": "Support ticket system.", "defaultPort": 80 }
+    ,{ "name": "ERP5", "image": "nexedi/erp5", "desc": "ERP system.", "defaultPort": 8080 }
+    ,{ "name": "SuiteCRM", "image": "suitecrm/suitecrm", "desc": "CRM system.", "defaultPort": 80 }
+    ,{ "name": "Corteza", "image": "cortezaproject/corteza-server", "desc": "Low-code platform.", "defaultPort": 80 }
+    ,{ "name": "Directus", "image": "directus/directus", "desc": "Headless CMS.", "defaultPort": 8055 }
+    ,{ "name": "Strapi", "image": "strapi/strapi", "desc": "Headless CMS.", "defaultPort": 1337 }
+    ,{ "name": "KeystoneJS", "image": "keystonejs/keystone", "desc": "CMS framework.", "defaultPort": 3000 }
+    ,{ "name": "Payload CMS", "image": "payloadcms/payload", "desc": "Headless CMS.", "defaultPort": 3000 }
+    ,{ "name": "Netbox", "image": "netboxcommunity/netbox", "desc": "IPAM/DCIM tool.", "defaultPort": 8080 }
+    ,{ "name": "IPAM", "image": "phpipam/phpipam-www", "desc": "IP address management.", "defaultPort": 80 }
+    ,{ "name": "OpenSpeedTest", "image": "openspeedtest/latest", "desc": "Network speed test.", "defaultPort": 3000 }
+    ,{ "name": "LibreSpeed", "image": "linuxserver/librespeed", "desc": "Speed test server.", "defaultPort": 80 }
+    ,{ "name": "Speedtest Tracker", "image": "henrywhitaker3/speedtest-tracker", "desc": "Speed tracking.", "defaultPort": 80 }
+    ,{ "name": "Invidious", "image": "iv-org/invidious", "desc": "YouTube frontend.", "defaultPort": 3000 }
+    ,{ "name": "Piped", "image": "1337kavin/piped", "desc": "Privacy YouTube frontend.", "defaultPort": 80 }
+    ,{ "name": "Libreddit", "image": "libreddit/libreddit", "desc": "Reddit frontend.", "defaultPort": 8080 }
+    ,{ "name": "Teddit", "image": "teddit/teddit", "desc": "Reddit frontend.", "defaultPort": 8080 }
+    ,{ "name": "Nitter", "image": "zedeus/nitter", "desc": "Twitter frontend.", "defaultPort": 8080 }
+    ,{ "name": "AnonAddy", "image": "anonaddy/anonaddy", "desc": "Email alias service.", "defaultPort": 8000 }
+    ,{ "name": "SimpleLogin", "image": "simplelogin/app", "desc": "Email alias service.", "defaultPort": 80 }
+    ,{ "name": "Mailcow", "image": "mailcow/mailcow-dockerized", "desc": "Mail server stack.", "defaultPort": 80 }
+    ,{ "name": "Mailu", "image": "mailu/mailu", "desc": "Mail server.", "defaultPort": 80 }
+    ,{ "name": "Postal", "image": "postalserver/postal", "desc": "Mail delivery platform.", "defaultPort": 5000 }
+    ,{ "name": "Haraka", "image": "haraka/haraka", "desc": "SMTP server.", "defaultPort": 25 }
+    ,{ "name": "Postfix", "image": "boky/postfix", "desc": "Mail transfer agent.", "defaultPort": 25 }
+    ,{ "name": "Dovecot", "image": "dovecot/dovecot", "desc": "IMAP/POP server.", "defaultPort": 143 }
+    ,{ "name": "Roundcube", "image": "roundcube/roundcubemail", "desc": "Webmail client.", "defaultPort": 80 }
+    ,{ "name": "SnappyMail", "image": "jasonmunro/snappymail", "desc": "Webmail client.", "defaultPort": 8888 }
+    ,{ "name": "OpenLDAP", "image": "osixia/openldap", "desc": "LDAP directory.", "defaultPort": 389 }
+    ,{ "name": "phpLDAPadmin", "image": "osixia/phpldapadmin", "desc": "LDAP admin UI.", "defaultPort": 80 }
+    ,{ "name": "FreeIPA", "image": "freeipa/freeipa-server", "desc": "Identity management.", "defaultPort": 80 }
+    ,{ "name": "Rclone", "image": "rclone/rclone", "desc": "Cloud sync tool.", "defaultPort": 0 }
+    ,{ "name": "Synapse", "image": "matrixdotorg/synapse", "desc": "Matrix server.", "defaultPort": 8008 }
+    ,{ "name": "Element", "image": "vectorim/element-web", "desc": "Matrix client.", "defaultPort": 80 }
+    ,{ "name": "Rocket.Chat", "image": "rocket.chat", "desc": "Chat server.", "defaultPort": 3000 }
+    ,{ "name": "Zabbix Server", "image": "zabbix/zabbix-server", "desc": "Monitoring system.", "defaultPort": 10051 }
+    ,{ "name": "Zabbix Web", "image": "zabbix/zabbix-web-nginx-mysql", "desc": "Zabbix frontend.", "defaultPort": 8080 }
+    ,{ "name": "Graylog", "image": "graylog/graylog", "desc": "Log management.", "defaultPort": 9000 }
+    ,{ "name": "Wazuh", "image": "wazuh/wazuh", "desc": "Security monitoring.", "defaultPort": 55000 }
+    ,{ "name": "OSSEC", "image": "ossec/ossec", "desc": "Host intrusion detection.", "defaultPort": 1514 }
+    ,{ "name": "Fail2ban", "image": "crazymax/fail2ban", "desc": "Intrusion prevention.", "defaultPort": 0 }
+    ,{ "name": "CrowdSec", "image": "crowdsecurity/crowdsec", "desc": "Security engine.", "defaultPort": 8080 }
+    ,{ "name": "PiAlert", "image": "jokobsk/pi.alert", "desc": "Network monitoring.", "defaultPort": 20211 }
+    ,{ "name": "Darkstat", "image": "xavierh/darkstat", "desc": "Network traffic analyzer.", "defaultPort": 667 }
+    ,{ "name": "LibreNMS", "image": "librenms/librenms", "desc": "Network monitoring.", "defaultPort": 8000 }
+    ,{ "name": "Observium", "image": "observium/observium", "desc": "Network monitoring.", "defaultPort": 80 }
+    ,{ "name": "CheckMK", "image": "checkmk/check-mk-raw", "desc": "Monitoring system.", "defaultPort": 5000 }
+    ,{ "name": "Icinga2", "image": "icinga/icinga2", "desc": "Monitoring system.", "defaultPort": 80 }
+    ,{ "name": "Nagios", "image": "jasonrivers/nagios", "desc": "Monitoring system.", "defaultPort": 80 }
+    ,{ "name": "Zerotier", "image": "zyclonite/zerotier", "desc": "Virtual network.", "defaultPort": 9993 }
+    ,{ "name": "Teleport", "image": "gravitational/teleport", "desc": "Access platform.", "defaultPort": 3080 }
+    ,{ "name": "Guacamole", "image": "guacamole/guacamole", "desc": "Remote access gateway.", "defaultPort": 8080 }
+    ,{ "name": "NoVNC", "image": "theasp/novnc", "desc": "Browser VNC.", "defaultPort": 8080 }
+    ,{ "name": "VNC Server", "image": "dorowu/ubuntu-desktop-lxde-vnc", "desc": "Desktop in browser.", "defaultPort": 80 }
+    ,{ "name": "Collabora", "image": "collabora/code", "desc": "Online office.", "defaultPort": 9980 }
+    ,{ "name": "OnlyOffice", "image": "onlyoffice/documentserver", "desc": "Office suite.", "defaultPort": 80 }
+    ,{ "name": "Etherpad", "image": "etherpad/etherpad", "desc": "Collaborative editor.", "defaultPort": 9001 }
+    ,{ "name": "Moodle", "image": "bitnami/moodle", "desc": "E-learning platform.", "defaultPort": 8080 }
+    ,{ "name": "OpenProject", "image": "openproject/community", "desc": "Project management.", "defaultPort": 80 }
+    ,{ "name": "Taiga", "image": "taigaio/taiga-back", "desc": "Agile project tool.", "defaultPort": 8000 }
+    ,{ "name": "Redmine", "image": "redmine", "desc": "Issue tracking.", "defaultPort": 3000 }
+    ,{ "name": "Zammad", "image": "zammad/zammad", "desc": "Helpdesk.", "defaultPort": 80 }
+    ,{ "name": "GLPI", "image": "diouxx/glpi", "desc": "IT asset management.", "defaultPort": 80 }
+    ,{ "name": "Osticket", "image": "osticket/osticket", "desc": "Ticket system.", "defaultPort": 80 }
+    ,{ "name": "SuiteCRM", "image": "suitecrm/suitecrm", "desc": "CRM system.", "defaultPort": 80 }
+    ,{ "name": "Directus", "image": "directus/directus", "desc": "Headless CMS.", "defaultPort": 8055 }
+    ,{ "name": "Strapi", "image": "strapi/strapi", "desc": "Headless CMS.", "defaultPort": 1337 }
+    ,{ "name": "Payload CMS", "image": "payloadcms/payload", "desc": "Headless CMS.", "defaultPort": 3000 }
+    ,{ "name": "Netbox", "image": "netboxcommunity/netbox", "desc": "IPAM/DCIM.", "defaultPort": 8080 }
+    ,{ "name": "phpIPAM", "image": "phpipam/phpipam-www", "desc": "IP management.", "defaultPort": 80 }
+    ,{ "name": "LibreSpeed", "image": "linuxserver/librespeed", "desc": "Speed test.", "defaultPort": 80 }
+    ,{ "name": "Speedtest Tracker", "image": "henrywhitaker3/speedtest-tracker", "desc": "Speed monitoring.", "defaultPort": 80 }
+    ,{ "name": "OpenSpeedTest", "image": "openspeedtest/latest", "desc": "Speed test server.", "defaultPort": 3000 }
+    ,{ "name": "Invidious", "image": "iv-org/invidious", "desc": "YouTube frontend.", "defaultPort": 3000 }
+    ,{ "name": "Piped", "image": "1337kavin/piped", "desc": "Private YouTube frontend.", "defaultPort": 80 }
+    ,{ "name": "Libreddit", "image": "libreddit/libreddit", "desc": "Reddit frontend.", "defaultPort": 8080 }
+    ,{ "name": "Teddit", "image": "teddit/teddit", "desc": "Reddit frontend.", "defaultPort": 8080 }
+    ,{ "name": "Nitter", "image": "zedeus/nitter", "desc": "Twitter frontend.", "defaultPort": 8080 }
+    ,{ "name": "AnonAddy", "image": "anonaddy/anonaddy", "desc": "Email alias.", "defaultPort": 8000 }
+    ,{ "name": "SimpleLogin", "image": "simplelogin/app", "desc": "Email alias.", "defaultPort": 80 }
+    ,{ "name": "Mailcow", "image": "mailcow/mailcow-dockerized", "desc": "Mail server stack.", "defaultPort": 80 }
+    ,{ "name": "Mailu", "image": "mailu/mailu", "desc": "Mail server.", "defaultPort": 80 }
+    ,{ "name": "Roundcube", "image": "roundcube/roundcubemail", "desc": "Webmail.", "defaultPort": 80 }
+    ,{ "name": "SnappyMail", "image": "jasonmunro/snappymail", "desc": "Webmail client.", "defaultPort": 8888 }
+    ,{ "name": "OpenLDAP", "image": "osixia/openldap", "desc": "Directory server.", "defaultPort": 389 }
+    ,{ "name": "phpLDAPadmin", "image": "osixia/phpldapadmin", "desc": "LDAP UI.", "defaultPort": 80 }
+    ,{ "name": "Rclone", "image": "rclone/rclone", "desc": "Cloud sync.", "defaultPort": 0 }
+    ,{ "name": "Synapse", "image": "matrixdotorg/synapse", "desc": "Matrix server.", "defaultPort": 8008 }
+    ,{ "name": "Element", "image": "vectorim/element-web", "desc": "Matrix client.", "defaultPort": 80 }
+    ,{ "name": "Zabbix Server", "image": "zabbix/zabbix-server", "desc": "Monitoring.", "defaultPort": 10051 }
+    ,{ "name": "Graylog", "image": "graylog/graylog", "desc": "Log management.", "defaultPort": 9000 }
+    ,{ "name": "CrowdSec", "image": "crowdsecurity/crowdsec", "desc": "Security engine.", "defaultPort": 8080 }
+    ,{ "name": "Fail2ban", "image": "crazymax/fail2ban", "desc": "Intrusion prevention.", "defaultPort": 0 }
+    ,{ "name": "Cloudflared", "image": "cloudflare/cloudflared", "desc": "Tunnel service.", "defaultPort": 0 }
+    ,{ "name": "ZeroTier", "image": "zyclonite/zerotier", "desc": "Virtual networking.", "defaultPort": 9993 }
+    ,{ "name": "Teleport", "image": "gravitational/teleport", "desc": "Access platform.", "defaultPort": 3080 }
+    ,{ "name": "Guacamole", "image": "guacamole/guacamole", "desc": "Remote access gateway.", "defaultPort": 8080 }
+    ,{ "name": "NoVNC", "image": "theasp/novnc", "desc": "Browser VNC.", "defaultPort": 8080 }
+    ,{ "name": "VNC Server", "image": "dorowu/ubuntu-desktop-lxde-vnc", "desc": "Desktop in browser.", "defaultPort": 80 }
+    ,{ "name": "Collabora", "image": "collabora/code", "desc": "Office suite.", "defaultPort": 9980 }
+    ,{ "name": "OnlyOffice", "image": "onlyoffice/documentserver", "desc": "Office suite.", "defaultPort": 80 }
+    ,{ "name": "Etherpad", "image": "etherpad/etherpad", "desc": "Collaborative editor.", "defaultPort": 9001 }
+    ,{ "name": "Moodle", "image": "bitnami/moodle", "desc": "Learning platform.", "defaultPort": 8080 }
+    ,{ "name": "OpenProject", "image": "openproject/community", "desc": "Project management.", "defaultPort": 80 }
+    ,{ "name": "Taiga", "image": "taigaio/taiga-back", "desc": "Agile tool.", "defaultPort": 8000 }
+    ,{ "name": "Redmine", "image": "redmine", "desc": "Issue tracker.", "defaultPort": 3000 }
+    ,{ "name": "Zammad", "image": "zammad/zammad", "desc": "Helpdesk.", "defaultPort": 80 }
+    ,{ "name": "GLPI", "image": "diouxx/glpi", "desc": "IT asset tool.", "defaultPort": 80 }
+    ,{ "name": "OSTicket", "image": "osticket/osticket", "desc": "Ticket system.", "defaultPort": 80 }
+    ,{ "name": "SuiteCRM", "image": "suitecrm/suitecrm", "desc": "CRM.", "defaultPort": 80 }
+    ,{ "name": "Directus", "image": "directus/directus", "desc": "Headless CMS.", "defaultPort": 8055 }
+    ,{ "name": "Strapi", "image": "strapi/strapi", "desc": "Headless CMS.", "defaultPort": 1337 }
+    ,{ "name": "Payload CMS", "image": "payloadcms/payload", "desc": "Headless CMS.", "defaultPort": 3000 }
+    ,{ "name": "Netbox", "image": "netboxcommunity/netbox", "desc": "IPAM.", "defaultPort": 8080 }
+    ,{ "name": "phpIPAM", "image": "phpipam/phpipam-www", "desc": "IP manager.", "defaultPort": 80 }
+    ,{ "name": "LibreSpeed", "image": "linuxserver/librespeed", "desc": "Speed test.", "defaultPort": 80 }
+    ,{ "name": "Speedtest Tracker", "image": "henrywhitaker3/speedtest-tracker", "desc": "Speed tracking.", "defaultPort": 80 }
+    ,{ "name": "OpenSpeedTest", "image": "openspeedtest/latest", "desc": "Speed test.", "defaultPort": 3000 }
+    ,{ "name": "Invidious", "image": "iv-org/invidious", "desc": "YouTube frontend.", "defaultPort": 3000 }
+    ,{ "name": "Piped", "image": "1337kavin/piped", "desc": "YouTube frontend.", "defaultPort": 80 }
+    ,{ "name": "Libreddit", "image": "libreddit/libreddit", "desc": "Reddit frontend.", "defaultPort": 8080 }
+    ,{ "name": "Teddit", "image": "teddit/teddit", "desc": "Reddit frontend.", "defaultPort": 8080 }
+    ,{ "name": "Nitter", "image": "zedeus/nitter", "desc": "Twitter frontend.", "defaultPort": 8080 }
+    ,{ "name": "AnonAddy", "image": "anonaddy/anonaddy", "desc": "Email alias.", "defaultPort": 8000 }
+    ,{ "name": "SimpleLogin", "image": "simplelogin/app", "desc": "Email alias.", "defaultPort": 80 }
   ]
 }
