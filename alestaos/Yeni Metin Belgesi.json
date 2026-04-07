@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "name": "Nextcloud",
+      "image": "nextcloud",
+      "desc": "Kendi özel bulutun.",
+      "defaultPort": 8081
+    },
+    {
+      "name": "Minecraft",
+      "image": "itzg/minecraft-server",
+      "desc": "Arkadaşlarınla hayatta kal.",
+      "defaultPort": 25565
+    }
+  ]
+}
