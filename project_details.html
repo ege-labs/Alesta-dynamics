@@ -52,13 +52,12 @@
     </footer>
 
     <script>
-        async function loadProjectDetails() {
-            // 1. URL'den proje ismini çek (Örn: ?repo=alesta-s1-pro)
+async function loadProjectDetails() {
             const urlParams = new URLSearchParams(window.location.search);
             const repoName = urlParams.get('repo');
             
             if (!repoName) {
-                window.location.href = 'index.html'; // Repo ismi yoksa ana sayfaya dön
+                window.location.href = 'index.html'; 
                 return;
             }
 
@@ -66,21 +65,36 @@
             const container = document.getElementById('readme-container');
 
             try {
-                // 2. GitHub'dan ham README'yi çek
-                const response = await fetch(`https://raw.githubusercontent.com/ege-labs/${repoName}/main/README.md`);
+                const timestamp = new Date().getTime(); 
+                let branch = 'main'; // Varsayılan olarak main dalını ayarladık
+                
+                // 1. Önce main dalını dene
+                let response = await fetch(`https://raw.githubusercontent.com/ege-labs/${repoName}/main/README.md?t=${timestamp}`);
+                
+                // 2. Eğer main yoksa master dalını dene ve dal ismini güncelle
+                if (!response.ok) {
+                    response = await fetch(`https://raw.githubusercontent.com/ege-labs/${repoName}/master/README.md?t=${timestamp}`);
+                    branch = 'master'; // <-- KRİTİK NOKTA: Resimleri de master'dan çekmesi için bunu ekledik
+                }
                 
                 if (!response.ok) throw new Error('System_Link_Failure');
 
-                const markdown = await response.text();
+                let markdown = await response.text();
                 
-                // 3. Render Et
+                // 3. Resim yollarını dinamik olarak doğru dal (branch) üzerinden oluştur
+                const rawBaseUrl = `https://raw.githubusercontent.com/ege-labs/${repoName}/${branch}/`;
+                
+                markdown = markdown.replace(/<img([^>]+)src=["'](?!http)([^"']+)["']/g, `<img$1src="${rawBaseUrl}$2"`);
+                markdown = markdown.replace(/!\[([^\]]*)\]\((?!http)([^\)]+)\)/g, `![$1](${rawBaseUrl}$2)`);
+
+                // Render Et
                 container.innerHTML = marked.parse(markdown);
                 
             } catch (error) {
                 container.innerHTML = `
                     <div class="border border-red-500/20 bg-red-500/5 p-10 text-center">
                         <h1 class="text-red-500 font-mono text-xl mb-4">[404_DATA_NOT_FOUND]</h1>
-                        <p class="text-slate-500 font-mono text-xs">The requested documentation does not exist or is private.</p>
+                        <p class="text-slate-500 font-mono text-xs">The requested documentation (README.md) does not exist, is private, or branch is unknown.</p>
                     </div>
                 `;
             }
