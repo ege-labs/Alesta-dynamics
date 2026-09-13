@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS ve Typography eklentisi eklendi -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="icon" type="image/png" href="favicon.png">
     <title>Project Details | AlestA Dynamics</title>
@@ -21,7 +22,7 @@
              <a href="about.html" class="hover:text-white uppercase transition-all">About</a>
              <a href="contact.html" class="hover:text-white uppercase transition-all">Contact</a>
         </nav>
-        </header>
+    </header>
 
     <main class="flex-grow p-6 md:p-20">
         <div class="max-w-4xl mx-auto">
@@ -34,6 +35,7 @@
                 <span>Core</span> <span>/</span> <span id="project-path">Project_Name</span> <span>/</span> <span class="text-emerald-500">Live_Docs</span>
             </div>
 
+            <!-- prose sınıfları artık sorunsuz çalışacak -->
             <div id="readme-container" class="prose prose-invert max-w-none 
                 prose-headings:text-emerald-500 prose-headings:font-mono prose-headings:uppercase 
                 prose-a:text-emerald-400 prose-code:text-red-400 prose-strong:text-white">
