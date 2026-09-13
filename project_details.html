@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Tailwind CSS ve Typography eklentisi eklendi -->
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="icon" type="image/png" href="favicon.png">
@@ -35,7 +34,6 @@
                 <span>Core</span> <span>/</span> <span id="project-path">Project_Name</span> <span>/</span> <span class="text-emerald-500">Live_Docs</span>
             </div>
 
-            <!-- prose sınıfları artık sorunsuz çalışacak -->
             <div id="readme-container" class="prose prose-invert max-w-none 
                 prose-headings:text-emerald-500 prose-headings:font-mono prose-headings:uppercase 
                 prose-a:text-emerald-400 prose-code:text-red-400 prose-strong:text-white">
@@ -52,7 +50,7 @@
     </footer>
 
     <script>
-async function loadProjectDetails() {
+        async function loadProjectDetails() {
             const urlParams = new URLSearchParams(window.location.search);
             const repoName = urlParams.get('repo');
             
@@ -66,28 +64,24 @@ async function loadProjectDetails() {
 
             try {
                 const timestamp = new Date().getTime(); 
-                let branch = 'main'; // Varsayılan olarak main dalını ayarladık
+                let branch = 'main';
                 
-                // 1. Önce main dalını dene
                 let response = await fetch(`https://raw.githubusercontent.com/ege-labs/${repoName}/main/README.md?t=${timestamp}`);
                 
-                // 2. Eğer main yoksa master dalını dene ve dal ismini güncelle
                 if (!response.ok) {
                     response = await fetch(`https://raw.githubusercontent.com/ege-labs/${repoName}/master/README.md?t=${timestamp}`);
-                    branch = 'master'; // <-- KRİTİK NOKTA: Resimleri de master'dan çekmesi için bunu ekledik
+                    branch = 'master';
                 }
                 
                 if (!response.ok) throw new Error('System_Link_Failure');
 
                 let markdown = await response.text();
                 
-                // 3. Resim yollarını dinamik olarak doğru dal (branch) üzerinden oluştur
                 const rawBaseUrl = `https://raw.githubusercontent.com/ege-labs/${repoName}/${branch}/`;
                 
                 markdown = markdown.replace(/<img([^>]+)src=["'](?!http)([^"']+)["']/g, `<img$1src="${rawBaseUrl}$2"`);
                 markdown = markdown.replace(/!\[([^\]]*)\]\((?!http)([^\)]+)\)/g, `![$1](${rawBaseUrl}$2)`);
 
-                // Render Et
                 container.innerHTML = marked.parse(markdown);
                 
             } catch (error) {
