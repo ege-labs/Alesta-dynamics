@@ -1,5 +1,5 @@
 {
-  "beta_active": true,
+  "beta_active": false,
   "min_version": "0.10.0",
   "store_url": "https://alestadynamics.com"
 }
