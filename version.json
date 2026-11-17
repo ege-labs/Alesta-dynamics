@@ -1,8 +1,5 @@
 {
   "beta_active": true,
-  "latest_version": "0.5.0",
-  "min_allowed_version": "0.5.0",
-  "announcement": "Beta v5 yayında! Yeni savaş ilerleme ekranı ve ekonomi düzeltmeleri eklendi.",
-  "download_url": "https://alestadynamics.com/download",
+  "min_version": "0.10.0",
   "store_url": "https://alestadynamics.com"
 }
